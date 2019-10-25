@@ -1,4 +1,7 @@
 <div class="container">
+
+<%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+
   <h1> <%= @cocktail.name %></h1>
   <%= link_to "Volver al listado", cocktails_path %> |
   <%= link_to "Editar", edit_cocktail_path(@cocktail) %> |

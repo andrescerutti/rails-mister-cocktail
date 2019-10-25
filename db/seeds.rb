@@ -9,34 +9,15 @@
 
 puts 'Cleaning database...'
 Cocktail.destroy_all
+Ingredient.destroy_all
+Dose.destroy_all
 
 puts 'Creating cocktails...'
-cocktails_attributes = [
-  {
-    name:         'fernet'
-  },
-  {
-    name:         'gin tonic'
-  },
-  {
-    name:         'aperol sprits'
-  },
-  {
-    name:         'mojito'
-  },
-  {
-    name:         'piel de higuana'
-  }
-]
-
-cocktails_attributes.each do |r|
-
-  rest = Cocktail.create!(r)
-
-end
+cocktails_attributes = ['fernet', 'gin tonic', 'aperol sprits', 'mojito', 'piel de higuana', 'campari', 'gancia', 'schweepes', 'cocacola', 'daikiri', ' cinnamon', 'whiskacho']
 
 
 
+require 'faker'
 require 'open-uri'
 
 url = open('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list').read
@@ -51,3 +32,19 @@ end
 
 
 puts 'Finished!'
+
+cocktails_attributes.each do |name|
+  cocktail = Cocktail.create!(
+    name: name
+    )
+  puts "created new cocktail #{cocktail.name}"
+  3.times do
+  dose = Dose.create(
+    cocktail: cocktail,
+    ingredient: Ingredient.all.sample,
+    description:Faker::Restaurant.description
+    )
+  puts "created new dose for #{cocktail.name} = #{dose.description} with this ingredient #{dose.ingredient}"
+end
+
+end

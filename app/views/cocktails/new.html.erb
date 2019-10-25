@@ -1,8 +1,9 @@
 <div class="container">
-
-  <h1>Crear un cocktail</h1>
-
-
-  <%= render 'form', cocktail: @cocktail %>
-  <%= link_to "Volver al listado", cocktails_path %>
+  <div class= 'row justify-content-center'>
+    <div class= 'col-md-8'>
+      <h1>Crear un cocktail</h1>
+      <%= render 'form', cocktail: @cocktail %>
+      <%= link_to "Volver al listado", cocktails_path %>
+    </div>
+  </div>
 </div>

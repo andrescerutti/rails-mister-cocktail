@@ -1,20 +1,33 @@
-<h1>Cocktails</h1>
-
-<%= link_to "Agregar un cocktail", new_cocktail_path %>
-
-
-  <% @cocktails.each do |cocktail| %>
-
-<div class="card-trip">
-  <img src="https://images.unsplash.com/photo-1546171753-97d7676e4602?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
-    </div>
-     </div>
-</div>
-
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex center justify-content-around">
+  <%= link_to "#" do %>
+  <%= image_tag "https://www.freelogodesign.org/file/app/client/thumb/92c62f69-8efa-4b41-99fb-1ecb1485854a_200x200.png?1572018860359", class:"nav-logo" %>
   <% end %>
-
-
-
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <h1  class="btn btn-light"><%= link_to "Agregar un cocktail", new_cocktail_path %></h1>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="home-banner">
+</div>
+<div class="container ">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card-trip mb-3">
+        <img src="https://images.unsplash.com/photo-1546171753-97d7676e4602?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
